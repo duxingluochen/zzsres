@@ -28,13 +28,16 @@ public class AesCipherUtil {
     /**
      * AES密码加密私钥(Base64加密)
      */
-    private static String encryptAESKey;
+    private static String encryptAESKey="V2FuZzkyNjQ1NGRTQkFQSUpXVA";
 
     @Value("${encryptAESKey}")
     public void setEncryptAESKey(String encryptAESKey) {
         AesCipherUtil.encryptAESKey = encryptAESKey;
     }
 
+    public static void main(String[] args) {
+    	System.out.println(enCrypto("123456"));enCrypto("123456");
+	}
     /**
      * 加密
      *

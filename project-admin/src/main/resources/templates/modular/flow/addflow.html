@@ -1,0 +1,99 @@
+<#assign base=request.contextPath />
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<base id="base" href="${base}">
+<meta charset="UTF-8">
+<title>发起流程</title>
+<link rel="icon" href="${base}/static/img/logo.png">
+<link rel="stylesheet" type="text/css" href="${base}/static/bootstrap-3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/static/modular/flow/css/addflow.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/static/common/css/mediaQuery.css"/>
+</head>
+<body>
+	<div class="main">
+		<div class="mainCont">
+			<div class="hNav">
+				<span class="num" id="flownumber">NO.540</span> <span id="fileTwo">请假审批(2018-7-15 09:25:10)</span> <select id="tableguanli" hidden="true">
+				</select>
+				<div class="pull-right margin-r">
+					<div class="btns btnsBlue btn-sm" id="tijiao" onclick="addStart(1)">提交</div>
+					<div class="btns btnsBlue btn-sm" id="baocun" onclick="addStart(2)">保存</div>
+					<div class="btns btnsGreen btn-sm  margin-l margin-r" onclick="ulrHtml();">退出</div>
+				</div>
+			</div>
+			<div class="cont">
+				<div class="contBox">
+					<div class="leaveBox">
+						<div class="title">
+							<h3></h3>
+						</div>
+						<div style="text-align: center;">
+							标题<span style="color: red;">*</span><input type="text" name="summarize" id="summarize" style="border: 1px solid white; border-bottom-color: black;">
+						</div>
+						<form id="myFormDesign" name="myFormDesign">
+							<input type="hidden" id="formId" name="formId" value="<%=formId%>">
+							<div class="row leaveMain" id="tableHtml"></div>
+						</form>
+						<div class="leaveFile">
+							<div class="tit textColor1">公告附件区</div>
+							<div class="fileBox">
+								<form enctype="multipart/form-data" id="mutFile">
+									<div class="fileUpload" style="min-height: 100px">
+										<div id="showFile"></div>
+									</div>
+									<div class="UploadBtn" id="filesDiv">
+										<input class="form-control" name="files" id="hideFile" type="file" multiple="multiple">
+										<div class="btn span-btn btn-sm" onclick="$('input[id=hideFile]').click();">点我选择文件</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--抄送的模态框  -->
+	<div class="modal chao">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" onclick="closeModal()">&times;</button>
+					<h4 class="modal-title" id="addprocess">抄送</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="input-group">
+								<span class="input-group-addon">公司：</span> <select data-am-selected="{searchBox: 1,maxHeight: 100}" id="processone_s">
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input-group">
+								<span class="input-group-addon">部门：</span> <select multiple data-am-selected="{searchBox: 1,maxHeight: 100}" id="processtwo_s">
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input-group">
+								<span class="input-group-addon">员工：</span> <select multiple data-am-selected="{searchBox: 1,maxHeight: 100}" id="process_s">
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12 text-center">
+							<div class="btn btn-success" onclick="markcp()">提交</div>
+							<a onclick="closeModal()" class="btn btn-default reset">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--抄送的模态框 结束 -->
+</body>
+</html>

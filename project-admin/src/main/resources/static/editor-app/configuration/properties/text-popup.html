@@ -1,0 +1,30 @@
+
+<div class="modal" ng-controller="KisBpmTextPropertyPopupCtrl">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+				<h3>选部门</h3>
+			</div>
+			<div class="modal-body">
+				<!-- 				<p><textarea auto-focus class="form-control" ng-model="property.value" style="width:70%; height:100%; max-width: 100%; max-height: 100%; min-height: 200px"/></p> -->
+				公司： <select ng-init="s1=coms[0]" ng-model="s1" ng-options="p.comName for p in coms" ng-change="changecity(s1)">
+					<option value="">--请选择公司--</option>
+				</select>
+				<!-- 		<select ng-model="com.value" ng-change="conditionChanged(com)" > -->
+				<!--     		<option ng-repeat="x in property.coms track by $index"  value="{{x.comId}}" >{{x.comName}}</option> -->
+				<!--     	</select> -->
+				部门： <select ng-init="s2=depts[0]" ng-model="s2" ng-options="c.deptName for c in depts" ng-change="changedept(s2)>
+			<option value="">--请选择部门--
+					</option>
+				</select>
+				<!-- 		<select ng-model="dept.value" ng-change="multiInstanceChanged()" > -->
+				<!--     		<option ng-repeat="x in property.depts track by $index"  value="{{x.deptId}}" >{{x.deptName}}</option> -->
+				<!--     	</select> -->
+			</div>
+			<div class="modal-footer">
+				<button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+			</div>
+		</div>
+	</div>
+</div>

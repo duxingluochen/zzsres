@@ -1,0 +1,45 @@
+<#assign basePath=request.contextPath />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>高效管理平台-登录</title>
+<link rel="icon" href="${basePath}/static/img/logo.png">
+<link rel="stylesheet" type="text/css" href="${basePath}/static/bootstrap-3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="${basePath}/static/modular/login/css/login.css" />
+<script type="text/javascript" src="${basePath}/static/common/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="${basePath}/static/common/js/jquery.serializejson.js"></script>
+<script src="${basePath}/static/common/js/validator.js"></script>
+</head>
+<body>
+<div class="login-cont">
+	<div class="left"></div>
+	<div class="right">
+		<div class="loginBox">
+			<div class="app">
+				<a class="app-btn">app下载</a>
+				<div class="appCode hide">
+					<small>扫一扫 下载手机APP</small>
+					<a class="closeA">X</a>
+<!-- 					<img alt="APP下载" src="<%=basePath%>app/appcode"> -->
+				</div>
+			</div>
+			<div class="title">登录</div>
+			<form name="form" method="post" id="form">
+				<div class="user">
+					<input type="text" name="account"  value="152" placeholder="请输入账号" isvalid="yes" checkexpession="NotNull" errormsg="账号" />
+				</div>
+				<div class="pwd">
+					<input type="password" name="passWord"  value="123456"  placeholder="请输入密码" isvalid="yes" checkexpession="NotNull" errormsg="密码" />
+				</div>
+				<div class="login-btn">登 录</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+<script  type="text/javascript">
+if (window != top) top.location.href = location.href;
+</script>
+<script src="${basePath}/static/modular/login/js/login.js"></script>
+</html>

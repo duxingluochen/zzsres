@@ -70,6 +70,7 @@ public class ShiroConfig {
         Map<String, String> filterRuleMap = new HashMap<>(16);
         // 所有请求通过我们自己的JWTFilter
         filterRuleMap.put("/**", "jwt");
+        filterRuleMap.put("/employee/getByEmpId", "anon");
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;
     }

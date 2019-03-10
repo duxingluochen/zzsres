@@ -45,6 +45,10 @@ public class Constant {
     public final static String ACCOUNT = "account";
 
     /**
+     * JWT-account:
+     */
+    public final static String SESSION = "session:";
+    /**
      * JWT-currentTimeMillis:
      */
     public final static String CURRENT_TIME_MILLIS = "currentTimeMillis";

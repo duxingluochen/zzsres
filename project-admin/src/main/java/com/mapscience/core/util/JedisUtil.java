@@ -1,14 +1,16 @@
 package com.mapscience.core.util;
 
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.mapscience.core.common.constant.Constant;
 import com.mapscience.core.exception.ProjectException;
 import com.mapscience.core.support.StrKit;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-
-import java.util.Set;
 
 /**
  * JedisUtil(推荐存Byte数组，存Json字符串效率更慢)
@@ -78,6 +80,7 @@ public class JedisUtil {
             if (StrKit.isNotNull(bytes)) {
                 return SerializableUtil.unserializable(bytes);
             }
+            return null;
         } catch (Exception e) {
             throw new ProjectException(500, "获取Redis键值getObject方法异常:key=" + key + " cause=" + e.getMessage());
         } finally {
@@ -85,7 +88,6 @@ public class JedisUtil {
                 jedis.close();
             }
         }
-        return null;
     }
 
     /**

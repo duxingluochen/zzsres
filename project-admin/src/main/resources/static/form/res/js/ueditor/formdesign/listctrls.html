@@ -1,0 +1,663 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>列表控件属性</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="generator" content="www.leipi.org" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="leipi.style.css">
+<script type="text/javascript" src="../dialogs/internal.js"></script>
+<script type="text/javascript" src="./jquery-1.7.2.min.js"></script>
+
+<style type="text/css">
+a, a:hover, a:focus {
+	text-decoration: none;
+}
+
+.content {
+	padding: 10px;
+}
+
+.table {
+	width: 100%;
+	margin-bottom: 0px !important;
+}
+
+.table th, .table td {
+	vertical-align: middle;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .25);
+	margin: 0;
+	width: 100%;
+}
+
+.modal-dialog {
+	background: #fff;
+	width: 50%;
+	margin: 50px auto 30px;
+}
+
+.modal-content {
+	padding: 10px;
+	max-height: 200px;
+	overflow: auto;
+}
+
+.headtitlecon {
+	height: 14px;
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+.headtitle {
+	width: 100%;
+	clear: left;
+	margin: 5px auto;
+}
+
+.headtitle a {
+	display: inline-block;
+	width: 50%;
+	padding: 10px 0px;
+	text-align: center;
+	color: #444;
+	float: left;
+}
+
+.headtitle a span {
+	padding: 5px 15px;
+	border: 1px solid #195da5;
+	border-radius: 3px;
+	background: #195da5;
+	color: #fff;
+}
+
+.headtitle a:hover {
+	text-decoration: none;
+}
+
+.js {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+	height: 115px;
+}
+
+.js a {
+	display: inline-block;
+	width: 50%;
+	padding: 10px 0px;
+	text-align: center;
+	color: #444;
+	float: left;
+}
+
+.js a:hover {
+	text-decoration: none;
+}
+
+.js a span {
+	padding: 5px 15px;
+	border: 1px solid #bbb;
+	/* 	border-radius: 3px; */
+	background: #eee;
+	color: #444
+}
+
+.js>div {
+	width: 50%;
+	float: left;
+	height: 100%;
+	position: relative;
+}
+
+.js .r a {
+	width: 100%;
+	clear: left;
+	position: absolute;
+}
+
+.js .r a:first-child {
+	top: 0
+}
+
+.js .r a:last-child {
+	bottom: 0
+}
+</style>
+<script type="text/javascript">
+function createElement(type, name)
+{     
+    var element = null;     
+    try {        
+        element = document.createElement('<'+type+' name="'+name+'">');     
+    } catch (e) {}   
+    if(element==null) {     
+        element = document.createElement(type);     
+        element.name = name;     
+    } 
+    return element;
+}
+</script>
+
+</head>
+<body>
+	<div class="content">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td><span> 控件名称key ：</span> <input id="orgname" placeholder="必填项" type="text" class="input-medium" value="列表控件" /> <span class="label label-important">*</span> <span> 控件名称ktitle ：</span> <input id="title" placeholder="必填项" type="text" class="input-medium" value="列表控件" /> <span
+						class="label label-important">*</span></td>
+					<td>宽 <input id="orgwidth" type="text" value="100%" class="input-small span1" placeholder="auto" /> % 或 px
+					</td>
+				</tr>
+			</thead>
+		</table>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>
+						<button class="btn btn-success bb">公式自定义</button>
+					</td>
+					<td>显示公式区：<textarea rows="" cols="" id="formula"></textarea>
+					</td>
+				</tr>
+			</thead>
+		</table>
+
+		<table class="table table-striped table-bordered table-condensed" id="tbl">
+			<thead>
+				<tr>
+					<th><span>序号</span></th>
+					<th><span>表头title</span></th>
+					<th><span>表头key</span></th>
+					<th><span>类型</span></th>
+					<th><span>非空&验证</span></th>
+				</tr>
+			</thead>
+
+			<tbody id="tbl1">
+				<tr>
+					<td><span class="badge">1</span></td>
+					<td title="Tab键切换输入框"><input id="item_1" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_1" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_1" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!--  <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_1" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_1" class="csum" value="1"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_1"  type="text" class="input-medium"/></td>
+                        -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_1" value="1">
+					</label></td>
+				</tr>
+
+				<tr>
+					<td><span class="badge">2</span></td>
+					<td title="Tab键切换输入框"><input id="item_2" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_2" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_2" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+
+					</select></td>
+					<!--  <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_2" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_2" class="csum" value="2"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_2"  type="text" class="input-medium"/></td>
+                        -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_2" value="2">
+					</label></td>
+				</tr>
+
+				<tr>
+					<td><span class="badge">3</span></td>
+					<td title="Tab键切换输入框"><input id="item_3" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_3" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_3" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!-- <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_3" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_3" class="csum" value="3"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_3"  type="text" class="input-medium"/></td>
+                         -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_3" value="3">
+					</label></td>
+				</tr>
+				<tr>
+					<td><span class="badge">4</span></td>
+					<td title="Tab键切换输入框"><input id="item_4" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_4" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_4" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!--  <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_4" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_4" class="csum" value="4"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_4"  type="text" class="input-medium"/></td>
+                        -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_4" value="4">
+					</label></td>
+				</tr>
+				<tr>
+					<td><span class="badge">5</span></td>
+					<td title="Tab键切换输入框"><input id="item_5" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_5" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_5" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!--  <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_5" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_5" class="csum" value="5"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_5"  type="text" class="input-medium"/></td>
+                       -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_5" value="5">
+					</label></td>
+				</tr>
+
+				<tr>
+					<td><span class="badge">6</span></td>
+					<td title="Tab键切换输入框"><input id="item_6" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_6" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_6" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!-- <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_6" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_6" class="csum" value="6"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_6"  type="text" class="input-medium"/></td>
+                         -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_6" value="6">
+					</label></td>
+				</tr>
+
+				<tr>
+					<td><span class="badge">7</span></td>
+					<td title="Tab键切换输入框"><input id="item_7" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_7" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_7" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!-- <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_7" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_7" class="csum" value="7"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_7"  type="text" class="input-medium"/></td>
+                        -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_7" value="7">
+					</label></td>
+				</tr>
+
+				<tr>
+					<td><span class="badge">8</span></td>
+					<td title="Tab键切换输入框"><input id="item_8" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><input id="key_8" type="text" class="input-medium"></td>
+					<td title="Tab键切换输入框"><select id="coltype_8" class="input-medium">
+							<option value="text">单行输入框</option>
+							<option value="textarea">多行输入框</option>
+							<option value="int">数值</option>
+					</select></td>
+					<!--  <td title="Tab键切换输入框"> <label><input type="text" class="input-mini" id="unit_8" value=""> </label> </td>
+                        <td title="Tab键切换输入框"> <label> <input type="checkbox" id="sum_8" class="csum" value="8"> </label> </td>
+                        <td title="Tab键切换输入框"><input id="colvalue_8"  type="text" class="input-medium"/></td>
+                        -->
+					<td title="Tab键切换输入框"><label> <input type="checkbox" id="notnull_8" value="8">
+					</label></td>
+				</tr>
+
+			</tbody>
+		</table>
+		<!--div class="alert alert-danger">提示：</div-->
+	</div>
+
+	<!-- 模态框 -->
+
+	<div class="modal  bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-header">
+				<button type="button" class="close" onclick="closeModal()">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">自定义公司</h4>
+			</div>
+			<div class="modal-content">
+				<div class="headtitlecon" id="headtitlecon"></div>
+				<div class="headtitle clearfix"></div>
+				<div class="clearfix js">
+					<div class="l">
+						<a href="javascript:fr('+')"><span>加</span></a> <a href="javascript:fr('-')"><span>减</span></a> <a href="javascript:fr('*')"><span>乘</span></a> <a href="javascript:fr('/')"><span>除</span></a> <a href="javascript:fr('(')"><span>(</span></a> <a href="javascript:fr(')')"><span>)</span></a>
+					</div>
+					<div class="r">
+						<a href="javascript:caler('c')"><span>清空</span></a> <a href="javascript:calerstep('←')"><span>后退一步</span></a>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:saveModal();" class="btn btn-success">确定</a> <a href="javascript:closeModal();" class="btn btn-default">关闭</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<script type="text/javascript">
+var oNode = null,thePlugins = 'listctrls';
+var rows_count = 8;
+var adefaultDatatype = ['text','textarea','int','calc'];
+
+window.onload = function() {
+	
+    //弹出窗口初始化函数，这里主要是判断是编辑下拉列表还是新增
+    if( UE.plugins[thePlugins].editdom ){
+        oNode = UE.plugins[thePlugins].editdom;
+        $G('orgname').value = oNode.getAttribute('name');
+        $G('title').value = oNode.getAttribute('title');
+        var gWidth=oNode.getAttribute('orgwidth');  
+        var gTitle = oNode.getAttribute('orgtitle'),
+                gColType = oNode.getAttribute('orgcoltype'),
+                gKey = oNode.getAttribute('orgkey'),
+                gToaltextname = oNode.getAttribute('toaltextname'),
+                gToaltext = oNode.getAttribute('toaltext'),
+                gNotnull = oNode.getAttribute('notnull');
+        $("#formula").html(gToaltext);
+        var aTitle = gTitle.split('`'),
+          aColType = gColType ? gColType.split('`') : null,
+          aKey = gKey ? gKey.split('`') : null,      		
+                aNotnull = gNotnull ? gNotnull.split('`') : null;
+        $G('orgwidth').value = gWidth;
+        for ( var i = 0;i < aTitle.length-1; i++ ) {
+            var sItem = 'item_' + (i + 1),
+            sColtype = 'coltype_' + (i + 1),
+            sKey = 'key_' + (i+1),
+            sNotnull = 'notnull_' + (i + 1);
+            $G(sItem).value = aTitle[i];
+            if(aKey && aKey[i])
+            	$G(sKey).value = aKey[i];
+             if ( gNotnull ) {
+                $G(sNotnull).checked = aNotnull[i] == 1 ? true : false;
+            }
+            if ( gColType ) {
+                $('#' + sColtype).val(aColType[i]);
+            }
+         
+        }
+
+    }
+   
+}
+dialog.oncancel = function () {
+if( UE.plugins[thePlugins].editdom ) {
+    delete UE.plugins[thePlugins].editdom;
+}
+};
+dialog.onok = function (){
+
+    var gName=$G('orgname').value.replace(/\"/g,"&quot;"),gWidth=$G('orgwidth').value;
+	var title = $G('title').value.replace(/\"/g,"&quot;");
+    if( gName == '') {
+        alert('控件名称key不能为空');
+        $G('orgname').focus();
+        return false;
+    }
+    if( title == '') {
+        alert('控件名称title不能为空');
+        $G('title').focus();
+        return false;
+    }
+
+    var   gTitle = '',gKey='',gColType = '' ,gUnitValue='' ,gSum = '' ,gColValue = '' ,
+        nCount = 0 ,gNotnull = ''; 
+    for (var i = 1;i <= rows_count; i ++ ) {
+        var oItem  = $G( "item_" + i ) ,
+         oColType = $G('coltype_' + i) ,
+         oKey = $G('key_' + i),
+        oNotnull = $G( 'notnull_'+i )  ;
+        if ( oItem.value != '') {
+            if(gTitle.indexOf(oItem.value+ '`') !== -1 )
+            {
+                continue;//重复
+            }
+            gTitle += oItem.value + '`'; //表头
+            gKey += oKey.value + '`';
+            nCount ++ ;
+            if ( oNotnull.checked ) { //合计
+                gNotnull += '1`';
+            } else {
+                gNotnull += '0`';
+            }
+            gColType += oColType.value + '`';
+        }//end if
+    }//end for
+	var toaltext= $("#formula").html();
+    if(toaltext.trim().length == 0){
+    	 alert("公式不能为空");
+         return false;
+    }
+    if ( nCount == 0 ) {
+        alert("表头项目不能为空");
+        return false;
+    }
+
+    if( !oNode ) {
+
+        try {
+            oNode = createElement('input',gName);
+            oNode.setAttribute('leipiPlugins',thePlugins );
+            oNode.setAttribute('type','text');
+            oNode.setAttribute('value','{列表控件}');
+            oNode.setAttribute('readonly','readonly');
+            oNode.setAttribute('title',title);
+            oNode.setAttribute('name',gName);
+            oNode.setAttribute('orgtitle',gTitle);
+            oNode.setAttribute('orgkey',gKey);
+            oNode.setAttribute('orgcoltype',gColType);
+            oNode.setAttribute('orgunit',gUnitValue);
+            oNode.setAttribute('orgsum',gSum);
+             oNode.setAttribute('notnull',gNotnull);
+            oNode.setAttribute('orgcolvalue',gColValue);
+            oNode.setAttribute('toaltextname',"toaltext"+gName);
+            oNode.setAttribute('toaltext',toaltext);
+            if( gWidth != '' ) {
+                oNode.style.width = gWidth;
+            }
+            oNode.setAttribute('orgwidth',gWidth );
+            
+            editor.execCommand('insertHtml',oNode.outerHTML);
+            return true ;
+        } catch (e) {
+            try {
+                editor.execCommand('error');
+            } catch ( e ) {
+                alert('控件异常，请到 [雷劈网] 反馈或寻求帮助！');
+            }
+            return false;
+        }
+    } else {
+        //修改
+        oNode.setAttribute('leipiPlugins',thePlugins );
+        oNode.setAttribute('title',title);
+        oNode.setAttribute('name',gName);
+        oNode.setAttribute('orgtitle',gTitle);
+        oNode.setAttribute('orgkey',gKey);
+        oNode.setAttribute('orgcoltype',gColType);
+        oNode.setAttribute('orgunit',gUnitValue);
+        oNode.setAttribute('orgsum',gSum);
+        oNode.setAttribute('notnull',gNotnull);
+        oNode.setAttribute('orgcolvalue',gColValue);
+        oNode.setAttribute('toaltextname',"toaltext"+gName);
+        oNode.setAttribute('toaltext',toaltext);
+        if( gWidth != '' ) {
+            oNode.style.width = gWidth;
+        }else
+        {
+            oNode.style.width = '';
+        }
+        oNode.setAttribute('orgwidth',gWidth );
+        delete UE.plugins[thePlugins].editdom; //使用后清空这个对象，变回新增模式
+    }
+};
+</script>
+	<script type="text/javascript" src="bootstrap/js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+//进行自定义公式
+//首先获取那8列数据是否填写了
+$(".modal").hide();
+$(".bb").click(function(){
+	var list=[];
+	var map = {};
+	var item=null,key=null;coltype=null;
+	for (var i = 1; i <= 8; i++) {
+		item = $("#item_"+i).val();
+		if(item ==null || item == "" ){
+			continue;
+		}
+		key = $("#key_"+i).val();
+		if(key ==null || key == "" ){
+			continue;
+		}
+		coltype = $("#coltype_"+i).val();
+		if(coltype !="int"){
+			continue;
+		}
+		map["one"] = item;
+		map["two"] = key;
+		list.push(map);
+		map={};
+		item=null,key=null;coltype=null
+		map={};
+	}
+	$(".headtitle").html("");
+	if(list.length>0){
+		var str = "";
+		//进行显示模态框
+		for ( var x in list) {
+			str += '<a href="javascript:fr(\''+list[x].two+'\')" >'+'<span>'+list[x].one+'</span>'+'</a>'
+		}
+		$(".headtitle").html(str);
+		$(".headtitlecon").html($("#formula").html());
+		$(".modal").show();
+	}
+})
+
+var fr = function(key){
+	var str = $(".headtitlecon").html();
+	str += key + " ";
+	$(".headtitlecon").html(str)
+}
+
+var closeModal = function(){
+	$(".headtitlecon").html("");
+	$(".modal").hide();
+}
+
+var saveModal = function(){
+	var tset = $(".headtitlecon").html()
+	if(fn(tset)){
+		$(".headtitlecon").html("");
+		$("#formula").html(tset);
+		$(".modal").hide();
+	}
+}
+
+//清空
+var caler = function(){
+	$(".headtitlecon").html("");
+}
+
+//清空
+var calerstep = function(){
+	var tset = $(".headtitlecon").html();
+	var str = "";
+	var list = tset.split(" ");
+	var cc =list[list.length-1]=="" ? list.length-2 : list.length-1;
+	for (var i = 0; i < cc; i++) {
+		str += list[i] + " ";
+	}
+	$(".headtitlecon").html(str);
+}
+
+
+function fn(string){// TODO: 如何处理=？
+	// 剔除空白符
+	string = string.replace(/\s/g, '');
+	
+	// 错误情况，空字符串
+	if("" === string){
+		alert("公式不能为空");
+		return false;
+	}
+	
+	// 错误情况，运算符连续
+	if( /[\+\-\*\/]{2,}/.test(string) ){
+		alert("错误情况，运算符连续");
+		return false;
+	}
+	
+	// 空括号
+	if(/\(\)/.test(string)){
+		alert("错误情况，空括号");
+		return false;
+	}
+	
+	// 错误情况，括号不配对
+	var stack = [];
+	for(var i = 0, item; i < string.length; i++){
+		item = string.charAt(i);
+		if('(' === item){
+			stack.push('(');
+		}else if(')' === item){
+			if(stack.length > 0){
+				stack.pop();
+			}else{
+				alert("错误情况，括号不配对");
+				return false;
+			}
+		}
+	}
+	if(0 !== stack.length){
+		return false;
+	}
+	// 错误情况，(后面是运算符 
+	if(/\([\+\-\*\/]/.test(string)){
+		alert("错误情况，(后面是运算符 ");
+		return false;
+	}
+	// 错误情况，)前面是运算符
+	if(/[\+\-\*\/]\)/.test(string)){
+		alert("错误情况，)前面是运算符");
+		return false;
+	}
+	// 错误情况，(前面不是运算符
+	if(/[^\+\-\*\/]\(/.test(string)){
+		alert("错误情况，(前面不是运算符");
+		return false;
+	}
+	// 错误情况，)后面不是运算符
+	if(/\)[^\+\-\*\/]/.test(string)){
+		alert("错误情况，)后面不是运算符");
+		
+		return false;
+	}
+	return true;
+}
+</script>
+</body>
+</html>

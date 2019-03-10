@@ -1,16 +1,36 @@
 server:
-  port: 8081
+  port: 8080
+  max-http-header-size: 4048576
 spring:
+  freemarker:
+    expose-spring-macro-helpers: true
+    allow-request-override: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .html
+    template-loader-path: classpath:/templates/
+    request-context-attribute: ctx
+    settings:
+      classic_compatible: true
+  profiles:
+    active: @spring.active@
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /templates/
   datasource:
     dbName: separate
-    url: jdbc:mysql://192.168.1.205:3306/yydsjpt?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.247:3306/zzsres?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
     filters: wall,mergeStat
 project:
   muti-datasource:
     open: true
-    url: jdbc:mysql://192.168.1.205:3306/yydsjpt?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.247:3306/zzsres?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
     data-source-names:
@@ -45,9 +65,9 @@ mybatis-plus:
 
 #jedis配置
 redis:
-  host: 192.168.1.205
+  host: 192.168.1.225
   port: 6380
-  password: yydsjpt
+  password: 123456
   timeout: 10000
   max-active: 200
   max-wait: -1

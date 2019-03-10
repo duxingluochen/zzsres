@@ -1,0 +1,57 @@
+@media only screen and (max-width:1600px ) {
+	.role {
+		height: 93%;
+	}
+	.roleList {
+		height: 93%;
+	}
+	.contList {
+		height: 86%;
+		margin-bottom: 5px;
+	}
+	.deptList {
+		height: 95%;
+		overflow: auto;
+	}
+	.mainCont .cont {
+		height: 92%;
+	}
+}
+
+@media only screen and (max-width:1440px ) {
+	.mainCont .cont {
+		height: 90%;
+	}
+}
+
+@media only screen and (max-width:1400px ) {
+	.role .col-lg-4 {
+		width: 33%;
+		float: left;
+	}
+}
+
+@media only screen and (max-width:1366px ) {
+	.role {
+		height: 92%;
+	}
+	.roleList {
+		height: 91%;
+	}
+	.contList {
+		height: 80%;
+		margin-bottom: 5px;
+	}
+	.deptList {
+		height: 93%;
+	}
+	.msgCont>.row {
+		height: 80%;
+	}
+	.mainCont .cont {
+		height: 90%;
+	}
+	.leaveBox {
+		margin: 10px auto;
+	}
+}

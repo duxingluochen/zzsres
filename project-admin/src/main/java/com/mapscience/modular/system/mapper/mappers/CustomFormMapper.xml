@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapscience.modular.system.mapper.CustomFormMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mapscience.modular.system.model.CustomForm">
+        <id column="form_id" property="formId" />
+        <result column="dataJson" property="dataJson" />
+        <result column="fields" property="fields" />
+        <result column="html" property="html" />
+        <result column="form_name" property="formName" />
+        <result column="template" property="template" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="remark" property="remark" />
+    </resultMap>
+    
+    <!-- 平台查询映射结果 -->
+    <resultMap id="BasePResultMap" type="com.mapscience.modular.system.modelDTO.CustomFormDTO">
+        <id column="form_id" property="formId" />
+        <result column="dataJson" property="dataJson" />
+        <result column="fields" property="fields" />
+        <result column="html" property="html" />
+        <result column="form_name" property="formName" />
+        <result column="template" property="template" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="merchant_name" property="merchantName" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        form_id, dataJson, fields, html, form_name, template, merchant_id, status, create_time, update_time, remark
+    </sql>
+    
+	<select id="getPlatCustomFormPage" resultMap="BasePResultMap" parameterType="com.baomidou.mybatisplus.plugins.Page">
+	  	SELECT cf.*,mer.merchant_name from  t_custom_form cf JOIN merchant mer on cf.merchant_id=mer.merchant_id ORDER BY create_time DESC
+	</select>
+</mapper>

@@ -12,6 +12,6 @@ public class ProjectAdminApplication {
 		SpringApplication.run(ProjectAdminApplication.class, args);
 		logger.info("ProjectAdminApplication is success!");
 	}
-
+	
 }
 

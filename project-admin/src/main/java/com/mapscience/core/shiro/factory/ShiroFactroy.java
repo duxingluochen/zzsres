@@ -1,12 +1,8 @@
 package com.mapscience.core.shiro.factory;
 
-import com.mapscience.core.common.constant.factory.ConstantFactory;
-import com.mapscience.core.common.constant.state.ManagerStatus;
-import com.mapscience.core.shiro.ShiroUser;
-import com.mapscience.core.util.Convert;
-import com.mapscience.core.util.SpringContextHolder;
-import com.mapscience.modular.system.mapper.EmployeeMapper;
-import com.mapscience.modular.system.model.Employee;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.shiro.authc.CredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
@@ -17,8 +13,12 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.mapscience.core.common.constant.factory.ConstantFactory;
+import com.mapscience.core.common.constant.state.ManagerStatus;
+import com.mapscience.core.shiro.ShiroUser;
+import com.mapscience.core.util.SpringContextHolder;
+import com.mapscience.modular.system.mapper.EmployeeMapper;
+import com.mapscience.modular.system.model.Employee;
 
 @Service
 @DependsOn("springContextHolder")
@@ -36,16 +36,11 @@ public class ShiroFactroy implements IShiro {
     }
 
     @Override
-    public Employee employee(String account) {
-        Employee user = employeeMapper.getByAccount(account);
-
+    public Employee employee(String empId) {
+        Employee user = employeeMapper.getByEmpId(empId);
         // 账号不存在
         if (null == user) {
             throw new CredentialsException();
-        }
-        // 账号被冻结
-        if (user.getType() != ManagerStatus.OK.getCode()) {
-            throw new LockedAccountException();
         }
         return user;
     }
@@ -55,8 +50,6 @@ public class ShiroFactroy implements IShiro {
         ShiroUser shiroUser = new ShiroUser();
         shiroUser.setId(employee.getEmployeeId());
         shiroUser.setAccount(employee.getAccount());
-//        shiroUser.setDeptId(employee.getDeptid());
-//        shiroUser.setDeptName(ConstantFactory.me().getDeptName(user.getDeptid()));
         shiroUser.setName(employee.getEmployeeName());
 //        String[] roleArray = Convert.toStrArray(user.getRoleid());
         List<String> roleList = new ArrayList<String>();

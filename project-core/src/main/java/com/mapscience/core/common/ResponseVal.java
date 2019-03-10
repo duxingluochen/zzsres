@@ -8,7 +8,11 @@ import java.io.Serializable;
  * @param <T>
  */
 public class ResponseVal<T> implements Serializable {
-    private int code;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int code;
     private String msg;
     private T data;
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="main-layout" id='main-layout'>
+    <!--侧边栏-->
+    <div class="main-layout-side">
+        <div class="m-logo">
+            <img src="${base}/static/common/image/long2.png">
+        </div>
+        <ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
+            <#list menus as menu>
+                <#if !menu.children??>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-url="${base}" data-id='${menu.menuId}' data-text="${menu.menuName}"><i class="iconfont">&#xe603;</i>${menu.menuName}</a>
+                    </li>
+                <#else>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:void(0);"><i class="iconfont">&#xe607;</i>${menu.menuName}</a>
+                        <dl class="layui-nav-child">
+                            <#list menu.children as submenu>
+                                <#if !submenu.children??>
+                                    <dd><a href="javascript:void(0);" data-url="${base}${submenu.url}" data-id='${submenu.menuId}' data-text="${submenu.menuName}"><span class="l-line"></span>${submenu.menuName}</a></dd>
+                                </#if>
+                            </#list>
+                        </dl>
+                    </li>
+                </#if>
+            </#list>
+        </ul>
+    </div>
+    <div class="main-layout-container">
+        <!--左侧主体-->
+        <#include "${base}/modular/admin/common/right.html"/>
+    </div>
+    <!--遮罩-->
+    <div class="main-mask">
+
+    </div>
+</div>
+</body>
+</html>

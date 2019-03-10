@@ -1,0 +1,13 @@
+.title {
+    padding: 10px 20px;
+    color: #1989E2;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+.body {
+    padding: 10px 20px;
+    height: 95%;
+}
+.layui-table-tool{
+	background-color: #fff!important;
+}

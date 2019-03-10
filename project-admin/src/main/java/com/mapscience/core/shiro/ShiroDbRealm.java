@@ -1,14 +1,9 @@
 package com.mapscience.core.shiro;
 
-import com.mapscience.config.jwt.JwtToken;
-import com.mapscience.core.common.constant.Constant;
-import com.mapscience.core.shiro.factory.IShiro;
-import com.mapscience.core.shiro.factory.ShiroFactroy;
-import com.mapscience.core.support.StrKit;
-import com.mapscience.core.util.JedisUtil;
-import com.mapscience.core.util.JwtUtil;
-import com.mapscience.core.util.ToolUtil;
-import com.mapscience.modular.system.model.Employee;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -18,9 +13,15 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.mapscience.config.jwt.JwtToken;
+import com.mapscience.core.common.constant.Constant;
+import com.mapscience.core.shiro.factory.IShiro;
+import com.mapscience.core.shiro.factory.ShiroFactroy;
+import com.mapscience.core.support.StrKit;
+import com.mapscience.core.util.JedisUtil;
+import com.mapscience.core.util.JwtUtil;
+import com.mapscience.core.util.ToolUtil;
+import com.mapscience.modular.system.model.Employee;
 
 /**
  * 自定义realm
@@ -44,8 +45,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
         IShiro shiroFactory = ShiroFactroy.me();
         Employee user = shiroFactory.employee(account);
         ShiroUser shiroUser = shiroFactory.shiroUser(user);
-        /*IShiro shiroFactory = ShiroFactroy.me();
-        ShiroUser shiroUser = (ShiroUser) principalCollection.getPrimaryPrincipal();*/
         List<String> roleList = shiroUser.getRoleList();
         Set<String> permissionSet = new HashSet<>();
         Set<String> roleNameSet = new HashSet<>();
@@ -72,23 +71,19 @@ public class ShiroDbRealm extends AuthorizingRealm {
         IShiro shiroFactory = ShiroFactroy.me();
         String token = (String) authenticationToken.getCredentials();
         // 解密获得account，用于和数据库进行对比
-        String account = JwtUtil.getClaim(token, Constant.ACCOUNT);
+        String empId = JwtUtil.getClaim(token, Constant.ACCOUNT);
         // 帐号为空
-        if (StrKit.isBlank(account)) {
+        if (StrKit.isBlank(empId)) {
             throw new AuthenticationException("Token中帐号为空(The account in Token is empty.)");
         }
-        Employee user = shiroFactory.employee(account);
-
-
+        Employee user = shiroFactory.employee(empId);
         // 开始认证，要AccessToken认证通过，且Redis中存在RefreshToken，且两个Token时间戳一致
-        if (JwtUtil.verify(token) && JedisUtil.exists(Constant.PREFIX_SHIRO_REFRESH_TOKEN + account)) {
+        if (JwtUtil.verify(token) && JedisUtil.exists(Constant.PREFIX_SHIRO_REFRESH_TOKEN + empId)) {
             // 获取RefreshToken的时间戳
-            String currentTimeMillisRedis = JedisUtil.getObject(Constant.PREFIX_SHIRO_REFRESH_TOKEN + account).toString();
+            String currentTimeMillisRedis = JedisUtil.getObject(Constant.PREFIX_SHIRO_REFRESH_TOKEN + empId).toString();
             // 获取AccessToken时间戳，与RefreshToken的时间戳对比
             if (JwtUtil.getClaim(token, Constant.CURRENT_TIME_MILLIS).equals(currentTimeMillisRedis)) {
-                //ShiroUser shiroUser = shiroFactory.shiroUser(user, token);
                 return new SimpleAuthenticationInfo(token, token, super.getName());
-                //return shiroFactory.info(shiroUser, user, super.getName());
             }
         }
         throw new AuthenticationException("Token已过期(Token expired or incorrect.)");

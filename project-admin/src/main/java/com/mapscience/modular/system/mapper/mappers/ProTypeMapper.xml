@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapscience.modular.system.mapper.ProTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mapscience.modular.system.model.ProType">
+        <id column="type_id" property="typeId" />
+        <result column="type_name" property="typeName" />
+        <result column="parent_id" property="parentId" />
+        <result column="sort" property="sort" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        type_id, type_name, parent_id, sort, status, create_time, update_time
+    </sql>
+    
+    <select id="getPageProType" resultMap="BaseResultMap" parameterType="com.baomidou.mybatisplus.plugins.Page">
+	  	SELECT <include refid="Base_Column_List"/> FROM OA_PRO_TYPE  WHERE parent_id='0' ORDER BY sort 
+	</select>
+	
+	
+	<select id="getProTypeList" resultMap="BaseResultMap" parameterType="com.mapscience.modular.system.model.ProType">
+	  	SELECT <include refid="Base_Column_List"/> FROM OA_PRO_TYPE  
+	  	<where>
+	  		status=1
+	  		<if test="@com.mapscience.core.util.common.ObjectUtil@isNotEmpty(parentId)">
+	  		  and parent_id=#{parentId}
+	  		</if>
+	  	</where>
+ 		ORDER BY sort 
+	</select>
+
+</mapper>

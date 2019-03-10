@@ -1,6 +1,10 @@
 package com.mapscience.modular.system.mapper;
 
 import com.mapscience.modular.system.model.Employee;
+
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -11,6 +15,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author ${author}
  * @since 2019-01-16
  */
+@Repository
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
     /**
@@ -18,7 +23,8 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @param account
      * @return
      */
-    Employee getByAccount(String account);
+	@Select("select * from t_employee where employee_id=#{empId}")
+    Employee getByEmpId(String empId);
 
     /**
      * 根据账户号和密码查询用户信息
