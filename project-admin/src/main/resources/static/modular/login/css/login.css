@@ -31,7 +31,7 @@ body{
 .loginMain{
     width: 100%;
     height: 500px;
-    background: url(../images/mainBG.png) no-repeat;
+    /*background: url(../img/login/mainBG.png) no-repeat;*/
     background-size: 100% 100%;
     position: absolute;
     top: 50%;
@@ -44,9 +44,8 @@ body{
 .loginBox{
     width: 400px;
     height: 280px;
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 3px;
-    border: 1px solid #e4e4e4;
     padding: 20px 35px;
     position: absolute;
     top:50%;
@@ -61,6 +60,7 @@ body{
     font-size: 18px;
     line-height: 30px;
     padding: 0px 0px 20px 0;
+    color: #eee;
 }
 .login-input{
     width: 100%;
@@ -102,8 +102,7 @@ body{
 .login-btn{
     display: inline-block;
     padding: 0 30px;
-    background: #0E7EEE;
-    background: #3EC837;
+    background: #11a5df;
     color: #fff;
     border-radius: 5px;
     text-align: center;
@@ -116,7 +115,7 @@ body{
 }
 .form-item a{
     margin-top: 5px;
-    color: #ff7a37;
+    color: #45c733;
 }
 .form-item a:hover{
     color: #0E7EEE;

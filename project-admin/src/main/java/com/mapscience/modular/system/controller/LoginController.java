@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mapscience.config.jwt.JwtToken;
@@ -58,18 +59,18 @@ public class LoginController {
     //默认路径
     private final String PREFIX = "/modular/";
 
-    @GetMapping(value = "/")
+    @RequestMapping(value = "/")
     public String index(HttpServletRequest request, Model modelAndView) {
-        if (!JedisUtil.exists("session:"+request.getSession().getId())) {
+        /*if (!JedisUtil.exists("session:"+request.getSession().getId())) {
             return "/login";
-        }
-      /*   Subject subject = SecurityUtils.getSubject();
+        }*/
+        Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         Employee employee = (Employee)session.getAttribute("emp");
         Company company = (Company)session.getAttribute("company");
-       List<MenuDTO> menus = this.menuService.findMenusByEmpId(employee, company);
+       /* List<MenuDTO> menus = this.menuService.findMenusByEmpId(employee, company);
         modelAndView.addAttribute("menus", menus);*/
-        return PREFIX + "/home/home";
+        return PREFIX + "/home/home_index";
     }
     
     
@@ -78,7 +79,7 @@ public class LoginController {
      * @param employee
      * @return
      */
-	@PostMapping("login")
+	@PostMapping("/login")
 	@ResponseBody
     public Result login(Employee employee){
         //验证是否为空

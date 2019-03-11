@@ -2,41 +2,41 @@
  * 登陆
  */
 $(function() {
-    //点击登陆
-    $('#btnSubmit').click(function() {
-        login();
+    // 点击回车登录
+    $(document).ready(function() {
+        // 回车提交事件
+        $("body").bind('keydown', function(event) {
+            if (event.keyCode == 13) {
+                $(".login-btn").click();
+            }
+        });
+    });
+
+    // 登录
+    $(".login-btn").click(function() {
+        var valid = $('#form').Validform();
+        if (!valid) {
+            return;
+        }
+        var data = $("#form").serializeObject();
+        $.ajax({
+            method : "post",
+            url : "/login",
+            data : data,
+            async : false,
+            datatype : "json",
+            success : function(result) {
+                if (result.code == 200) {
+                    location.href = "/";
+                } else {
+                    $('.messagepass').html(result.msg);
+                }
+            },
+            error : function(errordata) {
+                alert("登录页面请求异常！");
+            }
+        });
     });
 
 });
 
-function login() {
-
-    //alert(ctx);
-    $('.messagepass').html("");
-    var account = $("input[name='account']").val();
-    var passWord = $("input[name='passWord']").val();
-    var data = {
-        account: account,
-        passWord: passWord,
-        rememberMe:true
-    }
-    $.ajax({
-        type: 'POST',
-        url: "/login",
-        dataType: "json",
-        async:true,
-        data: data,
-        success: function(result){
-
-            if(result.code == 200){
-               var cur= window.document.location.href;
-               var path =window.document.location.pathname;
-                var s=cur.indexOf(path);
-                window.location =cur.substring(0,s)+"/";
-            }else{
-                $('.messagepass').html(result.msg);
-
-            }
-        }
-    });
-}

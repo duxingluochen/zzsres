@@ -1,0 +1,725 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding: 0 15px 15px 15px;
+    background: url("../image/background.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.head {
+    height: 65px;
+    background: url("../image/head.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.head .logo {
+    width: 174px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 76px;
+}
+
+@media (max-width:1600px) {
+    .head .logo {
+        width: 174px;
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 46px;
+    }
+}
+
+@media (max-width:1440px) {
+    .head .logo {
+        width: 174px;
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 30px;
+    }
+}
+
+.head .big-title {
+    color: #2981de;
+    font-size: 24px;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+@media (max-width:1440px) {
+    .head .big-title {
+        color: #2981de;
+        font-size: 20px;
+        position: absolute;
+        top: 13px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
+
+.head .small-title {
+    color: #3d90e0;
+    font-size: 12px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+@media (max-width:1440px) {
+    .head .small-title {
+        color: #3d90e0;
+        font-size: 12px;
+        position: absolute;
+        top: 42px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        letter-spacing: -.5px;
+    }
+
+}
+
+.head .time {
+    color: #4bb5ff;
+    position: absolute;
+    top: 28px;
+    right: 53px;
+}
+
+@media (max-width:1600px) {
+    .head .time {
+        color: #4bb5ff;
+        position: absolute;
+        top: 28px;
+        right: 24px;
+    }
+}
+
+@media (max-width:1440px) {
+    .head .time {
+        color: #4bb5ff;
+        position: absolute;
+        top: 28px;
+        right: 7px;
+    }
+}
+
+.contents {
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    top: 65px;
+    tight: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.contents>div {
+    width: 29%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.contents .left {
+    padding-left: 35px;
+    background: url("../image/transform-left.png") no-repeat;
+    background-size: 20px 100%;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.contents .left .active {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: move 3s linear infinite;
+    -moz-animation: move 3s linear infinite;
+    animation: move 3s linear infinite;
+}
+
+.contents .left>div {
+    height: 32%;
+    padding: 15px;
+    background: url("../image/box.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.contents .left .top a {
+    width: 72px;
+    height: 72px;
+    margin: 0 17px;
+    display: block;
+    float: left;
+    color: #d8d8d8;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: relative;
+}
+
+@media (max-width:1366px) {
+    .contents .left .top a img {
+        width: 100%;
+        display: block;
+    }
+
+    .contents .left .top a {
+        width: 60px;
+        height: 60px;
+        margin: 0 14px;
+    }
+}
+
+.contents .left .top .menu1 {
+    width: 318px;
+    margin: auto;
+    position: relative;
+    top: 32px;
+}
+
+.contents .left .top .menu2 {
+    width: 212px;
+    margin: auto;
+    position: relative;
+    top: 16px;
+}
+
+.contents .left .top .menu3 {
+    width: 318px;
+    margin: auto;
+}
+
+@media (max-width:1600px) {
+    .contents .left .top .menu1 {
+        width: 318px;
+        margin: auto;
+        position: relative;
+        top: 21px;
+    }
+
+    .contents .left .top .menu2 {
+        width: 212px;
+        margin: auto;
+        position: relative;
+        top: 6px;
+    }
+
+    .contents .left .top .menu3 {
+        width: 318px;
+        margin: auto;
+        position: relative;
+        top: -10px;
+    }
+}
+
+@media (max-width:1366px) {
+    .contents .left .top .menu1 {
+        width: 264px;
+        margin: auto;
+        position: relative;
+        top: 16px;
+    }
+
+    .contents .left .top .menu2 {
+        width: 176px;
+        margin: auto;
+        position: relative;
+        top: 4px;
+    }
+
+    .contents .left .top .menu3 {
+        width: 264px;
+        margin: auto;
+        position: relative;
+        top: -8px;
+    }
+}
+
+.contents .left .top span {
+    position: absolute;
+    top: 34px;
+    left: 5px;
+    font-size: 12px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media (max-width:1366px) {
+    .contents .left .top span {
+        position: absolute;
+        top: 28px;
+        left: 1px;
+        font-size: 12px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.contents .text {
+    color: #4bb5ff;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 99;
+}
+
+.contents .page {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    overflow: hidden;
+}
+
+.contents .left .middle {
+    height: 32%;
+    margin: 3.5% 0;
+}
+
+.contents .left .middle .layui-pro .layui-row {
+	margin-bottom: 12px;
+}
+
+.contents .left .middle .layui-pro .layui-row:last-child {
+	margin-bottom: 0;
+}
+
+.contents .left .middle .layui-pro .layui-progress {
+	border-radius: 0;
+	background-color: #244883;
+}
+
+.contents .left .middle .layui-pro .layui-progress-bar {
+	border-radius: 0;
+	background: -webkit-gradient(linear, left top, right top, from(#0d9a87), to(#3970f9));
+    background: -webkit-linear-gradient(left, #0d9a87, #3970f9);
+    background: -moz-linear-gradient(left, #0d9a87, #3970f9);
+    background: linear-gradient(to right, #0d9a87, #3970f9);
+}
+
+.contents .left .middle .name {
+    color: #ddd;
+}
+
+.contents .center {
+    width: 40%;
+    margin: 0 1%;
+}
+
+.contents .center .top {
+    height: 65%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contents .center .top .location {
+    padding: 5px;
+    color: #3a91da;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../image/location.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.contents .center .top .location span {
+    color: #ffffff;
+}
+
+.contents .center .top .search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: inset 0 0 27px rgba(9, 131, 245, .2);
+}
+
+.contents .center .top .search input {
+    padding: 3px 6px;
+    border: 1px solid #213868;
+    background-color: transparent;
+    color: #ddd;
+}
+
+.contents .center .top .search span {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-left: 1px solid #213868;
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    color: #4bb5ff;
+    cursor: pointer;
+}
+
+.contents .center .top .search .fa-search {
+    right: 28px;
+}
+
+.contents .center .top .search .fa-angle-down {
+    right: 0;
+}
+
+.contents .center .bottom {
+    height: 32%;
+    padding: 15px;
+    margin-top: 3.5%;
+    background: url("../image/box.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.contents .center .bottom .empSituation {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.contents .right {
+    padding-right: 35px;
+    background: url("../image/transform-right.png") right no-repeat;
+    background-size: 20px 100%;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.contents .right .active {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-animation: move 3s linear infinite;
+    -moz-animation: move 3s linear infinite;
+    animation: move 3s linear infinite;
+}
+
+.contents .right>div {
+    height: 32%;
+    padding: 15px;
+    background: url("../image/box.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.contents .right .dist {
+    padding-left: 22px;
+    color: #fff;
+    position: relative;
+}
+
+.contents .right .dist:before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #0eb6ee;
+    border-radius: 50px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+}
+
+.contents .right .dist-admin {
+    margin: 20px 0;
+    overflow: hidden;
+    zoom: 1;
+}
+
+@media (max-width:1366px) {
+    .contents .right .dist-admin {
+        margin: 12px 0;
+        overflow: hidden;
+        zoom: 1;
+    }
+}
+
+.contents .right .dist-admin .bution {
+    width: 100%;
+    margin-right: 2%;
+    float: left;
+}
+
+.contents .right .dist-admin .bution a {
+    padding: 10px;
+    text-align: center;
+    color: #d8d8d8;
+    display: block;
+    background: url("../image/distribution.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.contents .right .dist-admin .bution:last-child {
+    margin-right: 0;
+}
+
+.contents .right .dist-modu {
+    margin: 5px 0;
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+}
+
+.contents .right .dist-modu .bution {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #d8d8d8;
+    background: url("../image/distribution.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.contents .right .dist-modu .bution:last-child {
+    margin-right: 0;
+}
+
+.contents .right .dist-modu .bution a {
+    color: #d8d8d8;
+}
+
+.picMarquee-left .hd {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.picMarquee-left .hd .prev,
+.picMarquee-left .hd .next {
+    padding: 3px;
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    background: #3B95D7;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.picMarquee-left .hd .prev {
+    left: 0;
+}
+
+.picMarquee-left .hd .next {
+    right: 0;
+}
+
+.picMarquee-left .bd>div {
+    width: 100% !important;
+}
+
+.picMarquee-left .bd ul {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.picMarquee-left .bd ul li {
+    width: 32%;
+    margin-right: .5%;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contents .right .middle {
+    height: 32%;
+    margin: 3.5% 0;
+}
+
+.map .reset {
+    padding: 4px 6px;
+    color: #09C;
+    background: rgba(255, 255, 255, .85);
+    border-radius: 4px;
+    position: absolute;
+    top: 45px;
+    right: 15px;
+    z-index: 99;
+    cursor: pointer;
+    display: none;
+}
+
+.map .reset:hover {
+    opacity: .95;
+}
+
+.map .legend {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+}
+
+.map .legend>div {
+    padding: 10px;
+    float: left;
+}
+
+.map .legend>div img {
+    width: 24px;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.map .legend>div span {
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #d8d8d8;
+}
+
+.contentPane>p {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.contentPane>p:last-child {
+    margin-bottom: 0;
+}
+
+.esriPopup .titlePane {
+    padding-left: 10px !important;
+}
+
+.esriPopup .esriPopupWrapper {
+    /* box-shadow: 0 0 0.75em rgba(255, 255, 255, .5) !important;
+    -webkit-box-shadow: 0 0 0.75em rgba(255, 255, 255, .5) !important; */
+    padding: 10px 10px 0 10px;
+    box-shadow: none !important;
+    background: url(../image/box.png) no-repeat rgba(12, 19, 47, .75) !important;
+    background-size: 100% 100% !important;
+}
+
+.esriPopup .title {
+    color: #fff;
+    font-size: 14px;
+}
+
+.esriPopup .titlePane,
+.esriPopup .contentPane,
+.esriPopup .actionsPane {
+    /* background: rgba(48, 47, 123, .85) !important; */
+    background-color: transparent !important;
+}
+
+.esriPopup .pointer,
+.esriPopup .outerPointer {
+    /* background: rgba(48, 47, 123, .85) !important; */
+    background-color: transparent !important;
+}
+
+#graphicsLayer1_layer image {
+    animation: twinkle 1s linear infinite alternate;
+    -webkit-animation: twinkle 1s linear infinite alternate;
+}
+
+@-webkit-keyframes move {
+    form {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+@-moz-keyframes move {
+    form {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes move {
+    form {
+        top: 0;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes twinkle {
+    form {
+        opacity: .7;
+    }
+
+    to {
+        opacity: .3;
+    }
+}
+
+@-webkit-keyframes twinkle {
+    form {
+        opacity: .7;
+    }
+
+    to {
+        opacity: .3;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+
+    height: 5px;
+
+}
+
+
+::-webkit-scrollbar-track-piece {
+    background: rgba(0, 0, 0, .15);
+    -webkit-border-radius: 50px;
+}
+
+
+::-webkit-scrollbar-thumb:vertical {
+    background: rgba(80, 80, 80, .5);
+    -webkit-border-radius: 50px;
+}
+
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(80, 80, 80, .5);
+    -webkit-border-radius: 50px;
+}
+

@@ -8,7 +8,7 @@ $(function(){
 				var str ="";
 				var data = result.data;
 				for ( var x in data) {
-					str += "<li><div class='pic'><a href=\"javascript:start('"+data[x].id+"',null);\">"+data[x].name+"</a></div></li>";
+					str += "<li><div class='pic bution'><a href=\"javascript:start('"+data[x].id+"',null);\">"+data[x].name+"</a></div></li>";
 				}
 				$("#picList").html(str);
 			}
@@ -23,7 +23,7 @@ $(function(){
 				var str ="";
 				var data = result.data;
 				for ( var x in data) {
-					str += "<li><div class='pic'><a href=\"javascript:start(null,'"+data[x].id+"');\">"+data[x].name+"</a></div></li>";
+					str += "<li><div class='pic bution'><a href=\"javascript:start(null,'"+data[x].id+"');\">"+data[x].name+"</a></div></li>";
 				}
 				//$("#picList2").html(str);
 				$("#picList2").html(str);

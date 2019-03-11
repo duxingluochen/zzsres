@@ -112,7 +112,7 @@ function Situation1(orgId, workType){
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgList.do',
+		url : '/homeStatistics/findOrgList.do',
 		data:data,
 		success : function(result) {
 			if (result.code == 200) {
@@ -124,7 +124,7 @@ function Situation1(orgId, workType){
 				$.ajax({
 					type : 'POST',
 					anysc:false,
-					url : rootPath+'homeStatistics/findEntryRate.do',
+					url : '/homeStatistics/findEntryRate.do',
 					success : function(result) {
 						if (result.code == 200) {
 							empSituation1(result.data);
@@ -149,7 +149,7 @@ function Situation2(orgId, workType){
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgList.do',
+		url : '/homeStatistics/findOrgList.do',
 		data:data,
 		success : function(result) {
 			if (result.code == 200) {
@@ -161,7 +161,7 @@ function Situation2(orgId, workType){
 				$.ajax({
 					type : 'POST',
 					anysc:false,
-					url : rootPath+'homeStatistics/findTurnoveRate.do',
+					url : '/homeStatistics/findTurnoveRate.do',
 					success : function(result) {
 						if (result.code == 200) {
 							empSituation2(result.data);
@@ -186,7 +186,7 @@ function Situation3(orgId, workType){
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgList.do',
+		url : '/homeStatistics/findOrgList.do',
 		data:data,
 		success : function(result) {
 			if (result.code == 200) {
@@ -198,7 +198,7 @@ function Situation3(orgId, workType){
 				$.ajax({
 					type : 'POST',
 					anysc:false,
-					url : rootPath+'homeStatistics/findPositive.do',
+					url : '/homeStatistics/findPositive.do',
 					success : function(result) {
 						if (result.code == 200) {
 							empSituation3(result.data);
@@ -223,7 +223,7 @@ function Situation4(orgId, workType){
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgList.do',
+		url : '/homeStatistics/findOrgList.do',
 		data:data,
 		success : function(result) {
 			if (result.code == 200) {
@@ -235,7 +235,7 @@ function Situation4(orgId, workType){
 				$.ajax({
 					type : 'POST',
 					anysc:false,
-					url : rootPath+'homeStatistics/findChangeRate.do',
+					url : '/homeStatistics/findChangeRate.do',
 					success : function(result) {
 						if (result.code == 200) {
 							empSituation4(result.data);
@@ -261,7 +261,7 @@ function start(orgId, workType){
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgList.do',
+		url : '/homeStatistics/findOrgList.do',
 		data:data,
 		success : function(result) {
 			if (result.code == 200) {
@@ -285,13 +285,13 @@ function drawCoordinate(lon, lat, id) {
 	var symbol ;
 	//一级目录
 	if(id.hierarchy==1){
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + 'html/home/image/point.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol( '${basePath}/static/modular/home/images/point.png', 15, 15);
 	}else if(id.hierarchy==2){
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + 'html/home/image/point2.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point2.png', 15, 15);
 	}else if(id.hierarchy==3){
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + 'html/home/image/point3.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point3.png', 15, 15);
 	}else{
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + 'html/home/image/point4.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point4.png', 15, 15);
 	}
 	
 	//创建graphic对象
@@ -312,7 +312,7 @@ var all=function(id){
 	$.ajax({
 		type : 'POST',
 		data:data,
-		url : rootPath+'homeStatistics/findAgeDistribution.do',
+		url : '/homeStatistics/findAgeDistribution.do',
 		success : function(result) {
 			if (result.code == 200) {
 				salary(result.data);
@@ -322,7 +322,7 @@ var all=function(id){
 	$.ajax({
 		type : 'POST',
 		data:data,
-		url : rootPath+'homeStatistics/findContract.do',
+		url : '/homeStatistics/findContract.do',
 		success : function(result) {
 			if (result.code == 200) {
 				onlineEmp(result.data);
@@ -332,7 +332,7 @@ var all=function(id){
 	$.ajax({
 		type : 'POST',
 		data:data,
-		url : rootPath+'homeStatistics/findEducationt.do',
+		url : '/homeStatistics/findEducationt.do',
 		success : function(result) {
 			if (result.code == 200) {
 				education(result.data);
@@ -342,7 +342,7 @@ var all=function(id){
 	$.ajax({
 		type : 'POST',
 		data:data,
-		url : rootPath+'homeStatistics/getEmpCount.do',
+		url : '/homeStatistics/getEmpCount.do',
 		success : function(result) {
 			if (result.code == 200) {
 				$(".number").html(result.data);

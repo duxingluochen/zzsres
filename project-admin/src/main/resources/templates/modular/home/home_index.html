@@ -1,0 +1,318 @@
+<#assign basePath=request.contextPath />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国再生资源人力资源管理系统</title>
+    <!--公用css-->
+    <link href="${basePath}/static/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="${basePath}/static/common/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="${basePath}/static/common/plugins/layui/css/layui.css" rel="stylesheet">
+    <!--公有结束-->
+    <link href="${basePath}/static/modular/home/homeChange/css/homeChange.css"  rel="stylesheet">
+</head>
+<script>
+    var rootPath = '${basePath}';
+</script>
+<body>
+
+<div class="head">
+    <img class="logo" src="${basePath}/static/modular/home/homeChange/image/logo.png" alt="加载中...">
+    <div class="big-title">中国再生资源人力资源管理系统</div>
+    <div class="small-title">Human Resource Management System</div>
+    <div class="time"></div>
+</div>
+<div class="contents">
+    <!-- 左部内容 -->
+    <div class="left">
+        <img class="active" src="${basePath}/static/modular/home/homeChange/image/transform-active.png" alt="加载中...">
+        <div class="top">
+            <div class="menu1">
+                <a class="menu menu_01" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon1.png" alt="加载中...">
+                    <span>员工管理</span>
+                </a>
+                <a class="menu menu_02" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon2.png" alt="加载中...">
+                    <span>组织管理</span>
+                </a>
+                <a class="menu menu_03" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon3.png" alt="加载中...">
+                    <span>党建工作</span>
+                </a>
+            </div>
+            <div class="menu2">
+                <a class="menu menu_04" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon4.png" alt="加载中...">
+                    <span>干部管理</span>
+                </a>
+                <a class="menu menu_05" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon5.png" alt="加载中...">
+                    <span>薪酬管理</span>
+                </a>
+            </div>
+            <div class="menu3">
+                <a class="menu menu_06" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon6.png" alt="加载中...">
+                    <span>绩效管理</span>
+                </a>
+                <a class="menu menu_07" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon7.png" alt="加载中...">
+                    <span>招聘管理</span>
+                </a>
+                <a class="menu menu_08" href="javascript:void(0);">
+                    <img src="${basePath}/static/modular/home/homeChange/image/icon8.png" alt="加载中...">
+                    <span>培训活动</span>
+                </a>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;员工重要信息完成情况&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page layui-pro" style="padding-right: 15px ;overflow-y: auto;">
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">身份证号</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="54%" id="percent1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">居住地址</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="70%" id="percent2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">紧急联系人</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="65%" id="percent3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">社保账号</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="43%" id="percent4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">公积金账号</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="81%" id="percent5"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        <label class="name">工资卡卡号</label>
+                    </div>
+                    <div class="layui-col-md10">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                            <div class="layui-progress-bar" lay-percent="72%" id="percent6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;员工年龄分布图&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page" id="salary"></div>
+        </div>
+    </div>
+    <!-- 中部内容 -->
+    <div class="center">
+        <div class="top" id="map">
+            <div class="location"><i class="fa fa-map-marker"></i> 当前位置：<span>中再生环境服务有限公司</span></div>
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;企业当前人数：<span class="number"></span>&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="search">
+                <input type="text" />
+                <span class="fa fa-search"></span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <div class="reset" id="reset"><span>重置窗口</span></div>
+            <div class="legend">
+                <div>
+                    <img src="${basePath}/static/modular/home/images/point.png">
+                    <span>一级公司</span>
+                </div>
+                <div>
+                    <img src="${basePath}/static/modular/home/images/point2.png">
+                    <span>二级公司</span>
+                </div>
+                <div>
+                    <img src="${basePath}/static/modular/home/images/point3.png">
+                    <span>三级公司</span>
+                </div>
+                <div>
+                    <img src="${basePath}/static/modular/home/images/point4.png">
+                    <span>其它</span>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;本月企业员工情况&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page">
+                <div class="empSituation" id="empSituation1"></div>
+                <div class="empSituation" id="empSituation2"></div>
+                <div class="empSituation" id="empSituation3"></div>
+                <div class="empSituation" id="empSituation4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 右部内容 -->
+    <div class="right">
+        <img class="active" src="${basePath}/static/modular/home/homeChange/image/transform-active.png" alt="加载中...">
+        <div class="top">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;组织架构分布&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page">
+                <div class="dist administration">按管理分布</div>
+                <div class="dist-admin picMarquee-left">
+                    <!-- <div class="hd">
+                 <a class="prev"><</a>
+                 <a class="next">></a>
+              </div> -->
+                    <div class="bd">
+                        <ul class="picList" id="picList">
+                            <li>
+                                <div class="pic bution">中再生</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">中再资源</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">中再资环</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dist modular">按模块分布</div>
+                <div class="dist-modu picMarquee-left">
+                    <div class="hd">
+                        <a class="prev">
+                            <</a> <a class="next">>
+                    </a>
+                    </div>
+                    <div class="bd">
+                        <ul class="picList" id="picList2">
+                            <li>
+                                <div class="pic bution">废家电</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">废塑料</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">废钢铁</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">废有色</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">废不锈钢</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">报废汽车</div>
+                            </li>
+                            <li>
+                                <div class="pic bution">危险废弃物</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;在职员工员工合同分布&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page" id="onlineEmp"></div>
+        </div>
+        <div class="bottom">
+            <div class="text">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-left-active.png" alt="加载中...">
+                &nbsp;在职员工学历分布&nbsp;
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right-active.png" alt="加载中...">
+                <img class="arrow" src="${basePath}/static/modular/home/homeChange/image/arrow-right.png" alt="加载中...">
+            </div>
+            <div class="page" id="education"></div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+<script type="text/javascript">
+    var mapUrl = "http://192.168.1.154:6080/arcgis/rest/services/zigongsi/zhongguoditu_weisanwei/MapServer"; //开发用
+    //var mapUrl ="http://58.56.174.102:6080/arcgis/rest/services/RenLiZiYuan/zhongguoditu_3v/MapServer";//发布用
+</script>
+
+<!--<script src="${basePath}/static/common/3.10/init.js" type="text/javascript"></script>-->
+<link rel="stylesheet" href="http://192.168.1.154/arcgis_js_api/library/3.9/3.9/js/esri/css/esri.css"/>
+<script type="text/javascript" src="http://192.168.1.154/arcgis_js_api/library/3.9/3.9/init.js"></script>
+
+
+<!--全局js-->
+<script src="${basePath}/static/common/js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="${basePath}/static/modular/home/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" ></script>
+<script src="${basePath}/static/common/plugins/layui/layui.js" type="text/javascript" ></script>
+<script src="${basePath}/static/common/plugins/echarts/echarts.js" type="text/javascript"></script>
+<!--私有js-->
+<script src="${basePath}/static/modular/home/js/home.js" type="text/javascript" ></script>
+<script src="${basePath}/static/modular/home/js/index_map.js" type="text/javascript" ></script>
+
+
+
+</html>
