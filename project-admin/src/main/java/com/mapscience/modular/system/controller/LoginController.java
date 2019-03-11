@@ -63,13 +63,13 @@ public class LoginController {
         if (!JedisUtil.exists("session:"+request.getSession().getId())) {
             return "/login";
         }
-        Subject subject = SecurityUtils.getSubject();
+      /*   Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         Employee employee = (Employee)session.getAttribute("emp");
         Company company = (Company)session.getAttribute("company");
-        List<MenuDTO> menus = this.menuService.findMenusByEmpId(employee, company);
-        modelAndView.addAttribute("menus", menus);
-        return PREFIX + "index";
+       List<MenuDTO> menus = this.menuService.findMenusByEmpId(employee, company);
+        modelAndView.addAttribute("menus", menus);*/
+        return PREFIX + "/home/home";
     }
     
     

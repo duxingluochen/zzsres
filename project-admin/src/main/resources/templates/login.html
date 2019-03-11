@@ -1,45 +1,48 @@
 <#assign basePath=request.contextPath />
-<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>高效管理平台-登录</title>
-<link rel="icon" href="${basePath}/static/img/logo.png">
-<link rel="stylesheet" type="text/css" href="${basePath}/static/bootstrap-3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="${basePath}/static/modular/login/css/login.css" />
-<script type="text/javascript" src="${basePath}/static/common/js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="${basePath}/static/common/js/jquery.serializejson.js"></script>
-<script src="${basePath}/static/common/js/validator.js"></script>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<!--公用css-->
+	<link href="${basePath}/static/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
+	<link href="${basePath}/static/common/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+	<!--公有结束-->
+
+	<!--私有css-->
+	<link href="${basePath}/static/modular/login/css/login.css" rel="stylesheet" type="text/css">
+	<!--私有css结束-->
+	<script type="text/javascript">
+        var rootPath = '${basePath}';
+        if(window.top !== window.self){ window.top.location = window.location;}
+	</script>
 </head>
 <body>
-<div class="login-cont">
-	<div class="left"></div>
-	<div class="right">
+<div class="loginCont">
+	<h1 class="title">人力资源后台管理系统</h1>
+	<div class="loginMain">
 		<div class="loginBox">
-			<div class="app">
-				<a class="app-btn">app下载</a>
-				<div class="appCode hide">
-					<small>扫一扫 下载手机APP</small>
-					<a class="closeA">X</a>
-<!-- 					<img alt="APP下载" src="<%=basePath%>app/appcode"> -->
+			<div class="login-title">登录账户</div>
+			<form>
+				<div class="form-item">
+					<input id="account" name="account" type="text" class="login-input" placeholder="请输入用户名"  value="5002"/>
+					<label for="account" class="login-icon"><i class="fa fa-user-o"></i></label>
 				</div>
-			</div>
-			<div class="title">登录</div>
-			<form name="form" method="post" id="form">
-				<div class="user">
-					<input type="text" name="account"  value="152" placeholder="请输入账号" isvalid="yes" checkexpession="NotNull" errormsg="账号" />
+				<div class="form-item">
+					<input id="passWord" name="passWord" type="passWord" class="login-input" placeholder="请输入密码"  value="123456"/>
+					<label for="passWord" class="login-icon"><i class="fa fa-key"></i></label>
 				</div>
-				<div class="pwd">
-					<input type="password" name="passWord"  value="123456"  placeholder="请输入密码" isvalid="yes" checkexpession="NotNull" errormsg="密码" />
+				<label class="messagepass"></label>
+				<div class="form-item">
+					<button class="submit" type="submit" id="btnSubmit">登 录</button>
 				</div>
-				<div class="login-btn">登 录</div>
 			</form>
 		</div>
 	</div>
 </div>
+
+<!--公用js-->
+<script src="${basePath}/static/common/js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="${basePath}/static/common/plugins/layui/layui.js" type="text/javascript" ></script>
+<script src="${basePath}/static/modular/login/js/login.js" type="text/javascript" ></script>
 </body>
-<script  type="text/javascript">
-if (window != top) top.location.href = location.href;
-</script>
-<script src="${basePath}/static/modular/login/js/login.js"></script>
 </html>
