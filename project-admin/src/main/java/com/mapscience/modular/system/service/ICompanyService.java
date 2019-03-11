@@ -1,5 +1,6 @@
 package com.mapscience.modular.system.service;
 
+import com.mapscience.core.common.ResponseVal;
 import com.mapscience.modular.system.model.Company;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -13,4 +14,12 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface ICompanyService extends IService<Company> {
 
+    /**
+     * 查询公司组织信息
+     * @param company
+     * @return
+     */
+    ResponseVal findComList(Company company);
+
+    ResponseVal findOrgListForOne();
 }

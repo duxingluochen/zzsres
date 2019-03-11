@@ -5,6 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.mapscience.core.base.controller.BaseController;
+import com.mapscience.core.common.ResponseVal;
+import com.mapscience.core.log.LogManager;
+import com.mapscience.core.log.factory.LogTaskFactory;
+import com.mapscience.core.shiro.ShiroKit;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -15,10 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.mapscience.config.jwt.JwtToken;
 import com.mapscience.core.common.constant.Constant;
@@ -33,6 +35,8 @@ import com.mapscience.modular.system.modelDTO.MenuDTO;
 import com.mapscience.modular.system.service.IEmployeeService;
 import com.mapscience.modular.system.service.IMenuService;
 
+import static com.mapscience.core.support.HttpKit.getIp;
+
 /**
  * <p>
  * 登录记录 前端控制器
@@ -43,7 +47,7 @@ import com.mapscience.modular.system.service.IMenuService;
  */
 @Controller
 @PropertySource("classpath:jwt.properties")
-public class LoginController {
+public class LoginController extends BaseController {
 
 	/**
      * RefreshToken过期时间
@@ -113,6 +117,27 @@ public class LoginController {
         subject.login(jwtToken);
         JedisUtil.setObject(Constant.SESSION + session.getId(), currentTimeMillis, Integer.parseInt(refreshTokenExpireTime));
         return new Result(HttpStatus.OK.value(), token);
+    }
+
+    /**
+     * 推出
+     * @return
+     */
+    @DeleteMapping("kickOut")
+    public String kickOutUser(){
+        /*Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        Employee employee = (Employee)session.getAttribute("emp");
+        if (JedisUtil.exists(Constant.PREFIX_SHIRO_REFRESH_TOKEN + employee.getAccount())) {
+            if (JedisUtil.delKey(Constant.PREFIX_SHIRO_REFRESH_TOKEN + employee.getAccount()) > 0) {
+                return super.responseBody(ProjectStatusEnum.SUCCESS);
+            }
+        }
+        return super.responseBody(ProjectStatusEnum.KICK_OUT_ERROR);*/
+        LogManager.me().executeLog(LogTaskFactory.exitLog(ShiroKit.getUser().getId(), getIp()));
+        ShiroKit.getSubject().logout();
+        deleteAllCookie();
+        return "/login";
     }
 }
 

@@ -287,11 +287,11 @@ function drawCoordinate(lon, lat, id) {
 	if(id.hierarchy==1){
 		symbol = new esri.symbol.PictureMarkerSymbol( '${basePath}/static/modular/home/images/point.png', 15, 15);
 	}else if(id.hierarchy==2){
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point2.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol('${basePath}/static/modular/home/images/point2.png', 15, 15);
 	}else if(id.hierarchy==3){
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point3.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol( '${basePath}/static/modular/home/images/point3.png', 15, 15);
 	}else{
-		symbol = new esri.symbol.PictureMarkerSymbol(rootPath + '${basePath}/static/modular/home/images/point4.png', 15, 15);
+		symbol = new esri.symbol.PictureMarkerSymbol('${basePath}/static/modular/home/images/point4.png', 15, 15);
 	}
 	
 	//创建graphic对象

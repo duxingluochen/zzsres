@@ -20,7 +20,7 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
 
     /**
      * 根据账号查询用户
-     * @param account
+     *
      * @return
      */
 	@Select("select * from t_employee where employee_id=#{empId}")

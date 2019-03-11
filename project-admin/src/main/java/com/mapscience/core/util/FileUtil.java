@@ -77,7 +77,7 @@ public abstract class FileUtil {
 	public static final String PATH_SEPARATOR = File.separator;
 
 	/**
-	 * 文件、URL等后缀的分割符: . 例如：1.jpg、index.html.
+	 * 文件、URL等后缀的分割符: . 例如：1.jpg
 	 */
 	public static final String EXT_SEPARATOR = ".";
 

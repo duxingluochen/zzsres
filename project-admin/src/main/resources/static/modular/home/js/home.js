@@ -1,29 +1,36 @@
 $(function(){
+
+    /**
+	 * 查询公司的三个集团
+     */
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'homeStatistics/findOrgListForOne.do',
+		url : '/homeStatistics/findOrgListForOne',
 		success : function(result) {
 			if (result.code == 200) {
 				var str ="";
 				var data = result.data;
 				for ( var x in data) {
-					str += "<li><div class='pic bution'><a href=\"javascript:start('"+data[x].id+"',null);\">"+data[x].name+"</a></div></li>";
+					str += "<li><div class='pic bution'><a href=\"javascript:start('"+data[x].companyId+"',null);\">"+data[x].companyName+"</a></div></li>";
 				}
 				$("#picList").html(str);
 			}
 		}
 	});
+    /**
+	 * 查询行业类型
+     */
 	$.ajax({
 		type : 'POST',
 		anysc:false,
-		url : rootPath+'workType/findList.do',
+		url :  '/companyType/findList',
 		success : function(result) {
 			if (result.code == 200) {
 				var str ="";
 				var data = result.data;
 				for ( var x in data) {
-					str += "<li><div class='pic bution'><a href=\"javascript:start(null,'"+data[x].id+"');\">"+data[x].name+"</a></div></li>";
+					str += "<li><div class='pic bution'><a href=\"javascript:start(null,'"+data[x].companyTypeId+"');\">"+data[x].companyTypeName+"</a></div></li>";
 				}
 				//$("#picList2").html(str);
 				$("#picList2").html(str);
@@ -730,15 +737,15 @@ empSituation4();
  * 设置菜单地址
  */
 $(".menu_01").click(function() {
-	window.location.href = rootPath + "modelIndex?id=1";
+	window.location.href = "/modelIndex?id=1";
 });
 
 $(".menu_02").click(function() {
-	window.location.href = rootPath + "modelIndex?id=2";
+	window.location.href = "/modelIndex?id=2";
 });
 
 $(".menu_03").click(function() {
-	window.location.href = rootPath + "modelIndex?id=3";
+	window.location.href = "/modelIndex?id=3";
 });
 
 /*$(".menu_04").click(function() {

@@ -31,6 +31,7 @@ public class ResponseVal<T> implements Serializable {
     }
 
 
+
     /**
      * 不带数据返回
      *
