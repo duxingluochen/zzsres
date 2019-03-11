@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 进入公司途径来源表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_source_entry")
+public class SourceEntry extends Model<SourceEntry> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * uuid主键
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("source_entry_id")
+    private String sourceEntryId;
     /**
-     * 户口类别名称
+     * 进入来源名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("source_entry_name")
+    private String sourceEntryName;
     /**
-     * 状态
+     * 0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getSourceEntryId() {
+        return sourceEntryId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setSourceEntryId(String sourceEntryId) {
+        this.sourceEntryId = sourceEntryId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getSourceEntryName() {
+        return sourceEntryName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setSourceEntryName(String sourceEntryName) {
+        this.sourceEntryName = sourceEntryName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.sourceEntryId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "SourceEntry{" +
+        "sourceEntryId=" + sourceEntryId +
+        ", sourceEntryName=" + sourceEntryName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

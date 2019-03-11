@@ -9,57 +9,57 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 岗位类别表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_post_type")
+public class PostType extends Model<PostType> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * uuid主键
+     * 唯一标志
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("post_type_id")
+    private String postTypeId;
     /**
-     * 户口类别名称
+     * 岗位类别名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("post_type_name")
+    private String postTypeName;
     /**
-     * 状态
+     * 状态:0是删除,1是启用,2是增加,不显示查询显示
      */
     private Integer status;
     /**
-     * 创建时间
+     * 创建日期
      */
     @TableField("crate_time")
     private Date crateTime;
     /**
-     * 更新时间
+     * 修改日期
      */
     @TableField("update_time")
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getPostTypeId() {
+        return postTypeId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setPostTypeId(String postTypeId) {
+        this.postTypeId = postTypeId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getPostTypeName() {
+        return postTypeName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setPostTypeName(String postTypeName) {
+        this.postTypeName = postTypeName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.postTypeId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "PostType{" +
+        "postTypeId=" + postTypeId +
+        ", postTypeName=" + postTypeName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

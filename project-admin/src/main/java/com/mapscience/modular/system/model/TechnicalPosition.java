@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 专业技术职务表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_technical_position")
+public class TechnicalPosition extends Model<TechnicalPosition> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * uuid主键
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("technical_position_id")
+    private String technicalPositionId;
     /**
-     * 户口类别名称
+     * 专业技术职务名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("technical_position_name")
+    private String technicalPositionName;
     /**
-     * 状态
+     * 0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getTechnicalPositionId() {
+        return technicalPositionId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setTechnicalPositionId(String technicalPositionId) {
+        this.technicalPositionId = technicalPositionId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getTechnicalPositionName() {
+        return technicalPositionName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setTechnicalPositionName(String technicalPositionName) {
+        this.technicalPositionName = technicalPositionName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.technicalPositionId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "TechnicalPosition{" +
+        "technicalPositionId=" + technicalPositionId +
+        ", technicalPositionName=" + technicalPositionName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

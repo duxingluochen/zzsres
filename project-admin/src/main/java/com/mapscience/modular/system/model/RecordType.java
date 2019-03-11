@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 教育类型表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_record_type")
+public class RecordType extends Model<RecordType> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * uuid主键
+     * uuid
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("record_type_id")
+    private String recordTypeId;
     /**
-     * 户口类别名称
+     * 类型名称(全日制，自考，函授等)
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("record_type_name")
+    private String recordTypeName;
     /**
-     * 状态
+     * 状态 :0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getRecordTypeId() {
+        return recordTypeId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setRecordTypeId(String recordTypeId) {
+        this.recordTypeId = recordTypeId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getRecordTypeName() {
+        return recordTypeName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setRecordTypeName(String recordTypeName) {
+        this.recordTypeName = recordTypeName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.recordTypeId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "RecordType{" +
+        "recordTypeId=" + recordTypeId +
+        ", recordTypeName=" + recordTypeName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

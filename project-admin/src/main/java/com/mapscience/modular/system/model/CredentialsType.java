@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 证件类型表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_credentials_type")
+public class CredentialsType extends Model<CredentialsType> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * uuid主键
+     * uuid
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("credentials_stype_id")
+    private String credentialsStypeId;
     /**
-     * 户口类别名称
+     * 证件类型名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("credentials_stype_name")
+    private String credentialsStypeName;
     /**
-     * 状态
+     * 状态0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getCredentialsStypeId() {
+        return credentialsStypeId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setCredentialsStypeId(String credentialsStypeId) {
+        this.credentialsStypeId = credentialsStypeId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getCredentialsStypeName() {
+        return credentialsStypeName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setCredentialsStypeName(String credentialsStypeName) {
+        this.credentialsStypeName = credentialsStypeName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.credentialsStypeId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "CredentialsType{" +
+        "credentialsStypeId=" + credentialsStypeId +
+        ", credentialsStypeName=" + credentialsStypeName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

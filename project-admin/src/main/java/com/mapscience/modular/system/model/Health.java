@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 健康状况表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_health")
+public class Health extends Model<Health> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * uuid主键
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("health_id")
+    private String healthId;
     /**
-     * 户口类别名称
+     * 健康状况名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("health_name")
+    private String healthName;
     /**
-     * 状态
+     * 0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getHealthId() {
+        return healthId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setHealthId(String healthId) {
+        this.healthId = healthId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getHealthName() {
+        return healthName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setHealthName(String healthName) {
+        this.healthName = healthName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.healthId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "Health{" +
+        "healthId=" + healthId +
+        ", healthName=" + healthName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

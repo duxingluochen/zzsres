@@ -1,16 +1,16 @@
 package com.mapscience.modular.system.service;
 
-import com.mapscience.modular.system.model.AccountType;
+import com.mapscience.modular.system.model.EducationType;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>
- * 户口类别表 服务类
+ * 员工学历字典表 服务类
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-public interface IAccountTypeService extends IService<AccountType> {
+public interface IEducationTypeService extends IService<EducationType> {
 
 }

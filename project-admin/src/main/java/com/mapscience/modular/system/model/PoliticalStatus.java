@@ -9,29 +9,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 政治面貌表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_political_status")
+public class PoliticalStatus extends Model<PoliticalStatus> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * uuid主键
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("political_status_id")
+    private String politicalStatusId;
     /**
-     * 户口类别名称
+     * 政治面貌名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("political_status_name")
+    private String politicalStatusName;
     /**
-     * 状态
+     * 0是删除1是启用2是增加不显示查询显示
      */
     private Integer status;
     /**
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getPoliticalStatusId() {
+        return politicalStatusId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setPoliticalStatusId(String politicalStatusId) {
+        this.politicalStatusId = politicalStatusId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getPoliticalStatusName() {
+        return politicalStatusName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setPoliticalStatusName(String politicalStatusName) {
+        this.politicalStatusName = politicalStatusName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.politicalStatusId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "PoliticalStatus{" +
+        "politicalStatusId=" + politicalStatusId +
+        ", politicalStatusName=" + politicalStatusName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

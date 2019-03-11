@@ -7,15 +7,15 @@ import org.springframework.stereotype.Controller;
 
 /**
  * <p>
- * 户口类别表 前端控制器
+ * 证件类型表 前端控制器
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
 @Controller
-@RequestMapping("/accountType")
-public class AccountTypeController {
+@RequestMapping("/credentialsType")
+public class CredentialsTypeController {
 
 }
 

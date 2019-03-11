@@ -9,27 +9,27 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 员工入职公司类型表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_entry_company_type")
+public class EntryCompanyType extends Model<EntryCompanyType> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * uuid主键
+     * 唯一标识
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("entry_company_type_id")
+    private String entryCompanyTypeId;
     /**
-     * 户口类别名称
+     * 名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("entry_company_type_name")
+    private String entryCompanyTypeName;
     /**
      * 状态
      */
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getEntryCompanyTypeId() {
+        return entryCompanyTypeId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setEntryCompanyTypeId(String entryCompanyTypeId) {
+        this.entryCompanyTypeId = entryCompanyTypeId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getEntryCompanyTypeName() {
+        return entryCompanyTypeName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setEntryCompanyTypeName(String entryCompanyTypeName) {
+        this.entryCompanyTypeName = entryCompanyTypeName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.entryCompanyTypeId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "EntryCompanyType{" +
+        "entryCompanyTypeId=" + entryCompanyTypeId +
+        ", entryCompanyTypeName=" + entryCompanyTypeName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

@@ -9,27 +9,27 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 员工状态类型表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_employee_state")
+public class EmployeeState extends Model<EmployeeState> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * uuid主键
+     * 唯一标识
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableId("employee_state_id")
+    private String employeeStateId;
     /**
-     * 户口类别名称
+     * 名称
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("employee_state_name")
+    private String employeeStateName;
     /**
      * 状态
      */
@@ -46,20 +46,20 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getEmployeeStateId() {
+        return employeeStateId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setEmployeeStateId(String employeeStateId) {
+        this.employeeStateId = employeeStateId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getEmployeeStateName() {
+        return employeeStateName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setEmployeeStateName(String employeeStateName) {
+        this.employeeStateName = employeeStateName;
     }
 
     public Integer getStatus() {
@@ -88,14 +88,14 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.employeeStateId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "EmployeeState{" +
+        "employeeStateId=" + employeeStateId +
+        ", employeeStateName=" + employeeStateName +
         ", status=" + status +
         ", crateTime=" + crateTime +
         ", updateTime=" + updateTime +

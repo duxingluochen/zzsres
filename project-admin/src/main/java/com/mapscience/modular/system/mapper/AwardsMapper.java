@@ -1,16 +1,16 @@
 package com.mapscience.modular.system.mapper;
 
-import com.mapscience.modular.system.model.AccountType;
+import com.mapscience.modular.system.model.Awards;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
- * 户口类别表 Mapper 接口
+ * 个人或组织奖惩表 Mapper 接口
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-public interface AccountTypeMapper extends BaseMapper<AccountType> {
+public interface AwardsMapper extends BaseMapper<Awards> {
 
 }

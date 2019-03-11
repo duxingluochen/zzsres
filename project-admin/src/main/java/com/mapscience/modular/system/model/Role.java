@@ -9,36 +9,38 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 户口类别表
+ * 角色表
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-@TableName("t_account_type")
-public class AccountType extends Model<AccountType> {
+@TableName("t_role")
+public class Role extends Model<Role> {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId("role_id")
+    private String roleId;
     /**
-     * uuid主键
+     * 公司ID
      */
-    @TableId("account_type_id")
-    private String accountTypeId;
+    @TableField("com_id")
+    private String comId;
     /**
-     * 户口类别名称
+     * 角色名
      */
-    @TableField("account_type_name")
-    private String accountTypeName;
+    @TableField("role_name")
+    private String roleName;
     /**
-     * 状态
+     * 状态   1 启用  2  冻结   3 删除
      */
     private Integer status;
     /**
      * 创建时间
      */
-    @TableField("crate_time")
-    private Date crateTime;
+    @TableField("create_time")
+    private Date createTime;
     /**
      * 更新时间
      */
@@ -46,20 +48,28 @@ public class AccountType extends Model<AccountType> {
     private Date updateTime;
 
 
-    public String getAccountTypeId() {
-        return accountTypeId;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
-    public String getAccountTypeName() {
-        return accountTypeName;
+    public String getComId() {
+        return comId;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setComId(String comId) {
+        this.comId = comId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public Integer getStatus() {
@@ -70,12 +80,12 @@ public class AccountType extends Model<AccountType> {
         this.status = status;
     }
 
-    public Date getCrateTime() {
-        return crateTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCrateTime(Date crateTime) {
-        this.crateTime = crateTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {
@@ -88,16 +98,17 @@ public class AccountType extends Model<AccountType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.accountTypeId;
+        return this.roleId;
     }
 
     @Override
     public String toString() {
-        return "AccountType{" +
-        "accountTypeId=" + accountTypeId +
-        ", accountTypeName=" + accountTypeName +
+        return "Role{" +
+        "roleId=" + roleId +
+        ", comId=" + comId +
+        ", roleName=" + roleName +
         ", status=" + status +
-        ", crateTime=" + crateTime +
+        ", createTime=" + createTime +
         ", updateTime=" + updateTime +
         "}";
     }

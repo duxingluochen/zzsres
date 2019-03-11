@@ -1,16 +1,16 @@
 package com.mapscience.modular.system.mapper;
 
-import com.mapscience.modular.system.model.AccountType;
+import com.mapscience.modular.system.model.Role;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
- * 户口类别表 Mapper 接口
+ * 角色表 Mapper 接口
  * </p>
  *
  * @author ${author}
  * @since 2019-03-11
  */
-public interface AccountTypeMapper extends BaseMapper<AccountType> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }
